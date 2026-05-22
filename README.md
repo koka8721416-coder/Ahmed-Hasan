@@ -248,6 +248,10 @@ Create by Gio Ahmed Hasan
 السابق + الشيت + التكليف حفريات
 </a>
 
+<a href="https://koka8721416-coder.github.io/cr7/" target="_blank">
+الاستراكودا
+</a>
+
 </div>
 
 </div>
