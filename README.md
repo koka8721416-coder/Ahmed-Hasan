@@ -269,6 +269,34 @@ onclick="window.open('https://koka8721416-coder.github.io/Ahmed-Hasan/')">
 
 </div>
 
+<!-- بئية نباتية -->
+
+<div class="card" onclick="togglePlantMenu()">
+
+<div class="icon">🌿</div>
+
+<div class="card-title">
+بئية نباتية
+</div>
+
+<div class="submenu" id="plantMenu">
+
+<a href="https://koka8721416-coder.github.io/Gioo-koka5/" target="_blank">
+الامتحان السابق
+</a>
+
+<a href="https://koka8721416-coder.github.io/Gio-koka/" target="_blank">
+بنك الاسئلة اختياري وصح وغلط
+</a>
+
+<a href="https://koka8721416-coder.github.io/Gioo-Koka2/" target="_blank">
+امتحانات شامله بئية نباتيه
+</a>
+
+</div>
+
+</div>
+
 </div>
 
 <script>
@@ -276,6 +304,19 @@ onclick="window.open('https://koka8721416-coder.github.io/Ahmed-Hasan/')">
 function toggleMenu(){
 
 let menu = document.getElementById("submenu");
+
+if(menu.style.display === "block"){
+    menu.style.display = "none";
+}
+else{
+    menu.style.display = "block";
+}
+
+}
+
+function togglePlantMenu(){
+
+let menu = document.getElementById("plantMenu");
 
 if(menu.style.display === "block"){
     menu.style.display = "none";
