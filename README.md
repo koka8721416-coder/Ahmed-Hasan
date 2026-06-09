@@ -6,326 +6,288 @@
 <title>Gio Ahmed Hasan</title>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(-45deg,#020617,#0f172a,#1e293b,#2563eb);
-    background-size:400% 400%;
-    animation:bg 12s ease infinite;
-    min-height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
+background:#020617;
+overflow-x:hidden;
+color:white;
 }
 
-/* خلفية متحركة */
-
-@keyframes bg{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+/* ================= CANVAS BACKGROUND ================= */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:0;
 }
 
-/* الحشرات */
-
-.bug{
-    position:absolute;
-    font-size:30px;
-    opacity:0.5;
-    animation:moveBug linear infinite;
+/* ================= APP ================= */
+.app{
+position:relative;
+z-index:2;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:20px;
 }
 
-.b1{
-    top:10%;
-    left:-10%;
-    animation-duration:15s;
+/* PROFILE */
+.profile{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-top:10px;
+border:2px solid #38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,.4);
 }
 
-.b2{
-    top:40%;
-    left:-15%;
-    animation-duration:18s;
-}
-
-.b3{
-    top:75%;
-    left:-10%;
-    animation-duration:12s;
-}
-
-.b4{
-    top:20%;
-    left:-12%;
-    animation-duration:20s;
-}
-
-@keyframes moveBug{
-    from{
-        transform:translateX(0) rotate(0deg);
-    }
-    to{
-        transform:translateX(120vw) rotate(360deg);
-    }
-}
-
-/* الكونتينر */
-
-.container{
-    width:90%;
-    max-width:430px;
-    text-align:center;
-    z-index:2;
-}
-
-/* العنوان */
-
+/* 🔥 FIRE NAME */
 .title{
-    color:white;
-    font-size:32px;
-    font-weight:bold;
-    margin-bottom:35px;
-    animation:glow 2s infinite alternate;
+font-size:24px;
+font-weight:bold;
+margin-top:10px;
+min-height:35px;
+background:linear-gradient(90deg,#ff4500,#ffae00,#ff0000,#38bdf8);
+background-size:300% 300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fireGlow 1.5s infinite alternate;
+text-shadow:0 0 20px rgba(255,100,0,.5);
 }
 
-@keyframes glow{
-    from{
-        text-shadow:0 0 10px #38bdf8;
-    }
-    to{
-        text-shadow:0 0 25px #ffffff;
-    }
+@keyframes fireGlow{
+0%{
+transform:scale(1);
+text-shadow:0 0 5px #38bdf8;
 }
 
-/* الكروت */
+50%{
+transform:scale(1.08);
+text-shadow:0 0 20px #ff4500, 0 0 30px #ff0000;
+}
 
+100%{
+transform:scale(1.1);
+text-shadow:0 0 10px #ff6a00, 0 0 25px #ff0000;
+}
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+width:100%;
+max-width:520px;
+margin-top:20px;
+}
+
+@media(max-width:520px){
+.grid{grid-template-columns:1fr;}
+}
+
+/* CARD */
 .card{
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:25px;
-    padding:25px;
-    margin:22px 0;
-    cursor:pointer;
-    transition:0.4s;
-    overflow:hidden;
-    position:relative;
-    animation:float 3s ease-in-out infinite;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:15px;
+padding:12px;
+cursor:pointer;
+transition:.3s;
+position:relative;
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.03);
-    box-shadow:0 0 30px rgba(255,255,255,0.25);
-}
-
-/* لمعة */
-
-.card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.3),
-        transparent
-    );
-    animation:shine 3s infinite;
-}
-
-@keyframes shine{
-    100%{
-        left:120%;
-    }
+transform:translateY(-5px);
+border-color:#38bdf8;
+box-shadow:0 0 20px rgba(56,189,248,.25);
 }
 
 .icon{
-    font-size:55px;
-    margin-bottom:15px;
-    animation:jump 2s infinite;
+font-size:20px;
 }
 
 .card-title{
-    color:white;
-    font-size:24px;
-    font-weight:bold;
+font-size:14px;
+margin-top:5px;
 }
 
-@keyframes jump{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
-    100%{transform:translateY(0);}
-}
-
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-5px);}
-    100%{transform:translateY(0);}
-}
-
-/* القائمة الفرعية */
-
+/* SUBMENU */
 .submenu{
-    display:none;
-    margin-top:18px;
-    animation:fade 0.6s ease;
+max-height:0;
+overflow:hidden;
+transition:.4s ease;
+margin-top:8px;
+opacity:0;
+}
+
+.card.active .submenu{
+opacity:1;
 }
 
 .submenu a{
-    display:block;
-    text-decoration:none;
-    background:rgba(255,255,255,0.15);
-    color:white;
-    margin:12px 0;
-    padding:15px;
-    border-radius:15px;
-    transition:0.3s;
-    font-size:18px;
-    font-weight:bold;
+display:block;
+padding:7px;
+margin:5px 0;
+border-radius:10px;
+background:rgba(255,255,255,.08);
+text-decoration:none;
+color:white;
+font-size:12px;
 }
 
 .submenu a:hover{
-    background:#38bdf8;
-    transform:scale(1.03);
+background:#38bdf8;
+color:black;
 }
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- الحشرات -->
+<!-- PARTICLES -->
+<canvas id="canvas"></canvas>
 
-<div class="bug b1">🐞</div>
-<div class="bug b2">🦋</div>
-<div class="bug b3">🐜</div>
-<div class="bug b4">🐝</div>
+<div class="app">
 
-<div class="container">
+<img class="profile" src="https://i.postimg.cc/R0ch4s5D/Snapchat-1619378186.jpg">
 
 <div class="title">
-Create by Gio Ahmed Hasan
+<span id="typing"></span>
 </div>
 
-<!-- حفريات -->
+<div class="grid">
 
-<div class="card" onclick="toggleMenu()">
-
+<div class="card" onclick="toggle(this)">
 <div class="icon">🪨</div>
-
-<div class="card-title">
-حفريات
+<div class="card-title">حفريات</div>
+<div class="submenu">
+<a href="https://koka8721416-coder.github.io/Exam/">اختياري + صح وغلط</a>
+<a href="https://koka8721416-coder.github.io/gh/">الشيت والتكليف</a>
+<a href="https://koka8721416-coder.github.io/cr7/">استراكودا</a>
+</div>
 </div>
 
-<div class="submenu" id="submenu">
-
-<a href="https://koka8721416-coder.github.io/Exam/" target="_blank">
-79 اختياري + 50 صح وغلط
-</a>
-
-<a href="https://koka8721416-coder.github.io/gh/" target="_blank">
-السابق + الشيت + التكليف حفريات
-</a>
-
-<a href="https://koka8721416-coder.github.io/cr7/" target="_blank">
-الاستراكودا
-</a>
-
+<div class="card" onclick="toggle(this)">
+<div class="icon">🐛</div>
+<div class="card-title">حشرات</div>
+<div class="submenu">
+<a href="https://koka8721416-coder.github.io/Ahmed-Hasan/">بنك الحشرات</a>
+<a href="#">امتحانات</a>
+<a href="#">الشيتات</a>
+</div>
 </div>
 
-</div>
-
-<!-- حشرات -->
-
-<div class="card"
-onclick="window.open('https://koka8721416-coder.github.io/Ahmed-Hasan/')">
-
-<div class="icon">🐞</div>
-
-<div class="card-title">
-حشرات
-</div>
-
-</div>
-
-<!-- بئية نباتية -->
-
-<div class="card" onclick="togglePlantMenu()">
-
+<div class="card" onclick="toggle(this)">
 <div class="icon">🌿</div>
-
-<div class="card-title">
-بئية نباتية
+<div class="card-title">بيئة نباتية</div>
+<div class="submenu">
+<a href="https://koka8721416-coder.github.io/Gioo-koka5/">امتحان سابق</a>
+<a href="https://koka8721416-coder.github.io/Gio-koka/">بنك الأسئلة</a>
+<a href="https://koka8721416-coder.github.io/Gioo-Koka2/">امتحانات شاملة</a>
+</div>
 </div>
 
-<div class="submenu" id="plantMenu">
-
-<a href="https://koka8721416-coder.github.io/Gioo-koka5/" target="_blank">
-الامتحان السابق
-</a>
-
-<a href="https://koka8721416-coder.github.io/Gio-koka/" target="_blank">
-بنك الاسئلة اختياري وصح وغلط
-</a>
-
-<a href="https://koka8721416-coder.github.io/Gioo-Koka2/" target="_blank">
-امتحانات شامله بئية نباتيه
-</a>
-
+<div class="card" onclick="toggle(this)">
+<div class="icon">🌱</div>
+<div class="card-title">فسيولوجي نبات</div>
+<div class="submenu">
+<a href="https://koka8721416-coder.github.io/physiology-/">بنك الأسئلة</a>
+<a href="https://koka8721416-coder.github.io/Exam-physiology-/">امتحان سابق</a>
+</div>
 </div>
 
 </div>
-
 </div>
 
 <script>
 
-function toggleMenu(){
-
-let menu = document.getElementById("submenu");
-
-if(menu.style.display === "block"){
-    menu.style.display = "none";
+/* TOGGLE */
+function toggle(card){
+document.querySelectorAll(".card").forEach(c=>{
+if(c!==card){
+c.classList.remove("active");
+c.querySelector(".submenu").style.maxHeight=null;
 }
-else{
-    menu.style.display = "block";
+});
+
+let menu=card.querySelector(".submenu");
+let open=card.classList.contains("active");
+
+if(open){
+card.classList.remove("active");
+menu.style.maxHeight=null;
+}else{
+card.classList.add("active");
+menu.style.maxHeight=menu.scrollHeight+"px";
 }
-
-}
-
-function togglePlantMenu(){
-
-let menu = document.getElementById("plantMenu");
-
-if(menu.style.display === "block"){
-    menu.style.display = "none";
-}
-else{
-    menu.style.display = "block";
 }
 
+/* TYPING */
+let text="Gio Ahmed Hasan";
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,120);
 }
+}
+typing();
+
+/* PARTICLES */
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="rgba(56,189,248,.6)";
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+});
+
+requestAnimationFrame(draw);
+}
+draw();
+
+window.addEventListener("resize",()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
 
 </script>
 
